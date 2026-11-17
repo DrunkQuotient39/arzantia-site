@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; form-action 'self' https:; base-uri 'none'; object-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f13">
+  <meta name="referrer" content="strict-origin"><!-- the origin only, never a path or an invite code: the table checks it on Enter -->
+  <title>Arzantia</title>
+  <link rel="icon" href="arzantia-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="qr.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./" aria-label="Arzantia">
+      <img src="arzantia-mark-dark.svg" alt="" width="30" height="38">
+      <span>Arzantia</span>
+    </a>
+    <div class="who" id="who" hidden>
+      <span class="who-mail" id="who-mail"></span>
+      <button type="button" class="btn ghost" id="sign-out">Sign out</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- signed out -->
+    <section class="card door" id="door" hidden>
+      <h1>Take your seat</h1>
+      <p class="lede">Sign in to enter your table. New here? Make an account, then use the invite code your DM gave you.</p>
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" class="tab on" id="tab-in" aria-selected="true">Sign in</button>
+        <button type="button" role="tab" class="tab" id="tab-up" aria-selected="false">Create account</button>
+      </div>
+      <form id="form-in" class="form" autocomplete="on">
+        <label>Email<input type="email" name="email" autocomplete="username" required maxlength="120"></label>
+        <label>Password<input type="password" name="password" autocomplete="current-password" required minlength="8" maxlength="128"></label>
+        <button class="btn primary wide" type="submit">Sign in</button>
+        <button class="link" type="button" id="forgot">Forgot your password?</button>
+      </form>
+      <form id="form-up" class="form" hidden autocomplete="on">
+        <label>Your name<input type="text" name="name" autocomplete="nickname" required maxlength="40"></label>
+        <label>Email<input type="email" name="email" autocomplete="username" required maxlength="120"></label>
+        <label>Password<input type="password" name="password" autocomplete="new-password" required minlength="10" maxlength="128">
+          <small>At least 10 characters.</small></label>
+        <button class="btn primary wide" type="submit">Create account</button>
+      </form>
+    </section>
+
+    <!-- after sign-up / reset -->
+    <section class="card" id="sent" hidden>
+      <h1>Check your email</h1>
+      <p class="lede" id="sent-text">We sent you a link. Open it on this device to finish.</p>
+      <button class="btn" type="button" id="sent-back">Back to sign in</button>
+    </section>
+
+    <!-- a recovery link -->
+    <section class="card" id="reset" hidden>
+      <h1>Choose a new password</h1>
+      <form id="form-reset" class="form">
+        <label>New password<input type="password" name="password" autocomplete="new-password" required minlength="10" maxlength="128"></label>
+        <button class="btn primary wide" type="submit">Save password</button>
+      </form>
+    </section>
+
+    <!-- signed in -->
+    <section id="home" hidden>
+      <div class="home-head">
+        <h1>Your campaigns</h1>
+      </div>
+      <div class="camps" id="camps"></div>
+      <p class="empty" id="camps-empty" hidden>No campaign on this account yet. Playing? Put the invite code your DM gave you below. Running your own? See "Run your own campaign" below.</p>
+
+      <div class="grid2">
+        <form class="card form" id="form-join">
+          <h2>Join a friend's campaign</h2>
+          <p class="hint">Only for joining someone else's table: put the invite code they sent you.</p>
+          <label>Invite code<input type="text" name="code" required maxlength="40" autocomplete="off" spellcheck="false" autocapitalize="characters"></label>
+          <label>Name at this table<input type="text" name="name" maxlength="40" autocomplete="nickname"></label>
+          <button class="btn primary" type="submit">Join</button>
+        </form>
+        <div class="card form" id="link-help">
+          <h2>Run your own campaign</h2>
+          <p class="hint">Your campaign lives on your PC. On that PC, double-click <b>Arcane.cmd</b> in the Arcane folder: it sets
+            itself up and opens a page where you sign in once with this account. Your campaign then shows up here, and you
+            invite your players from its <b>DM tools</b>. After that, double-click Arcane.cmd before each session.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </main>
+
+  <template id="tpl-camp">
+    <article class="card camp">
+      <div class="camp-row">
+        <div class="camp-id">
+          <h2 class="camp-name"></h2>
+          <span class="badge camp-role"></span>
+          <span class="status camp-status"></span>
+        </div>
+        <button type="button" class="btn primary camp-enter">Enter the table</button>
+      </div>
+      <details class="camp-dm" hidden>
+        <summary class="dm-summary">DM tools: invite players, members</summary>
+        <div class="dm-grid">
+          <div class="dm-box">
+            <h3>Invite players</h3>
+            <p class="hint">One invite works for up to 10 people and expires in 7 days. They scan the QR code or open the link.</p>
+            <label class="hint">For <select class="dm-invite-role" aria-label="Who the invite is for"><option value="player">a player</option><option value="guest">a guest (watches)</option><option value="codm">a co-DM</option></select></label>
+            <button type="button" class="btn dm-invite">Make an invite</button>
+            <div class="out dm-invite-out" hidden></div>
+          </div>
+          <div class="dm-box">
+            <h3>Where the table runs</h3>
+            <p class="hint"><b>On your PC:</b> double-click Arcane.cmd before each session. To link that PC again (or another one),
+              open <code>http://127.0.0.1:8795/setup</code> on it and sign in.</p>
+            <p class="hint"><b>Online, always open:</b> run it on a hosting service with Docker, so nobody waits for your PC.</p>
+            <button type="button" class="btn dm-host">Host this table online</button>
+            <div class="out dm-host-out" hidden></div>
+          </div>
+          <div class="dm-box">
+            <h3>Members</h3>
+            <p class="hint members-note"></p>
+            <ul class="members"></ul>
+          </div>
+        </div>
+      </details>
+    </article>
+  </template>
+</body>
+</html>

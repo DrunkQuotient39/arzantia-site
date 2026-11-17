@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; form-action 'self'; base-uri 'none'; object-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#09090b">
+  <meta name="referrer" content="strict-origin">
+  <title>Welcome · Arzantia</title>
+  <link rel="icon" href="assets/arzantia-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/site.js" defer></script>
+  <script src="js/welcome.js" defer></script>
+</head>
+<body data-page="welcome">
+  <div class="ob">
+    <header class="ob-top">
+      <a class="brand" href="index.html" aria-label="Arzantia, home"><img src="assets/arzantia-mark-dark.svg" alt="" width="30" height="38"><span>Arzantia</span></a>
+      <ol class="prog" aria-label="Your progress" hidden></ol>
+      <div class="acts">
+        <span class="avatar" data-avatar aria-hidden="true">A</span>
+        <button class="btn ghost sm" type="button" id="sign-out">Sign out</button>
+      </div>
+    </header>
+
+    <div class="ob-ridge" data-ridge aria-hidden="true"></div>
+    <main class="ob-main" id="main" aria-live="polite">
+      <div class="loading" id="loading"><span class="spin" aria-hidden="true"></span>Opening your table…</div>
+
+      <!-- 1 · who are you at the table -->
+      <section class="stepv" data-step="role" hidden>
+        <div class="head"><span class="draw-art crest" data-art="chest" aria-hidden="true"></span><span class="eyebrow">Step one</span><h1 data-hello>Welcome</h1><p class="lede">How do you play? We'll set up what you need, and you can do the rest later.</p></div>
+        <div class="choices" role="radiogroup" aria-label="How you play">
+          <button type="button" class="choice" role="radio" aria-checked="false" data-role="dm"><span class="ico"><svg aria-hidden="true"><use href="#i-crown"/></svg></span><b>I run the game</b><span>You're the DM. You'll name a campaign and invite your party.</span></button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-role="player"><span class="ico"><svg aria-hidden="true"><use href="#i-dice"/></svg></span><b>I play</b><span>Your DM gave you an invite, or will soon.</span></button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-role="both"><span class="ico"><svg aria-hidden="true"><use href="#i-users"/></svg></span><b>A bit of both</b><span>You run one table and play at another.</span></button>
+        </div>
+        <div class="ob-nav"><a class="btn ghost" href="index.html">Explore first</a><div class="r"><button class="btn primary lg" type="button" data-next disabled>Continue<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div>
+      </section>
+
+      <!-- 2a · the DM's first campaign -->
+      <section class="stepv" data-step="campaign" hidden>
+        <div class="head"><span class="eyebrow">Your campaign</span><h1>Plant your first campaign</h1><p class="lede">Give it a name: it's how your players find your table. You can rename it whenever you like.</p></div>
+        <form class="ob-card" id="f-camp" novalidate>
+          <div class="form-alert" role="alert" hidden></div>
+          <label class="field"><span>Campaign name</span><span class="input"><input type="text" name="name" maxlength="80" required placeholder="The Curse of Blackbriar" autocomplete="off"></span></label>
+          <div class="sugg" aria-label="Ideas"><button type="button">The Curse of Blackbriar</button><button type="button">Embers of the Old Kingdom</button><button type="button">The Sunken Abbey</button><button type="button">Friday Night One-Shots</button></div>
+        </form>
+        <div class="ob-nav"><button class="btn ghost" type="button" data-back><svg aria-hidden="true"><use href="#i-undo"/></svg>Back</button><div class="r"><button class="btn" type="button" data-skip>Later</button><button class="btn primary lg" type="submit" form="f-camp">Create campaign<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div>
+      </section>
+
+      <!-- 2b · a player's invite -->
+      <section class="stepv" data-step="invite" hidden>
+        <div class="head"><span class="eyebrow">Your party</span><h1>Join your DM's campaign</h1><p class="lede">Paste the invite code your DM sent you. If you opened an invite link, it's already filled in.</p></div>
+        <form class="ob-card" id="f-inv" novalidate>
+          <div class="form-alert" role="alert" hidden></div>
+          <label class="field"><span>Invite code</span><span class="input code-input"><input type="text" name="code" maxlength="20" required placeholder="ABCD-EFGH-JKLM" autocomplete="off" spellcheck="false" autocapitalize="characters"></span></label>
+          <label class="field"><span>Your name at this table <small class="muted">(optional)</small></span><span class="input"><input type="text" name="name" maxlength="40" placeholder="Shown to your DM" autocomplete="nickname"></span></label>
+        </form>
+        <div class="ob-nav"><button class="btn ghost" type="button" data-back><svg aria-hidden="true"><use href="#i-undo"/></svg>Back</button><div class="r"><button class="btn" type="button" data-skip>I don't have one yet</button><button class="btn primary lg" type="submit" form="f-inv">Join<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div>
+      </section>
+
+      <!-- 3 · how the table runs -->
+      <section class="stepv" data-step="setup" hidden>
+        <div class="head"><span class="eyebrow">Your table</span><h1 data-setup-title>Open your table</h1><p class="lede" data-setup-lede>Arzantia runs on your computer. Pick how you'd like to start, then come back here when you're ready.</p></div>
+        <div class="paths" data-paths-dm>
+          <div class="path rec">
+            <span class="tag">In your browser</span>
+            <b>Enter the table</b>
+            <p>Your table lives online. Open your campaigns, choose this one, and press Enter the table.</p>
+            <ol><li>Open your campaigns</li><li>Choose your campaign</li><li>Press Enter the table</li></ol>
+            <a class="btn primary" href="signin.html" data-login>Open your campaigns<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="path">
+            <span class="tag q">Game night</span>
+            <b>Bring the room in</b>
+            <p>Put the map on a TV with a second browser window, and let players scan the join code with their phones.</p>
+            <ol><li>Open the TV view on the big screen</li><li>Players scan the code</li><li>Each picks a character</li></ol>
+          </div>
+        </div>
+        <div class="paths" data-paths-player hidden>
+          <div class="path rec">
+            <span class="tag">On game night</span>
+            <b>Scan, pick, play</b>
+            <p>When your DM opens the table, scan the code on their screen or TV, or press Enter the table from your campaigns.</p>
+            <ol><li>Open the code or link on your phone</li><li>Choose your character</li><li>Your phone is now your character sheet</li></ol>
+          </div>
+          <div class="path">
+            <span class="tag q">Good to know</span>
+            <b>Any phone works</b>
+            <p>No app to install. If you switch phones mid-session, sign in and take your character back.</p>
+          </div>
+        </div>
+        <div class="ob-nav"><button class="btn ghost" type="button" data-back><svg aria-hidden="true"><use href="#i-undo"/></svg>Back</button><div class="r"><button class="btn primary lg" type="button" data-next>Continue<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div>
+      </section>
+
+      <!-- 4 · a short tour -->
+      <section class="stepv" data-step="tour" hidden>
+        <div class="head"><span class="eyebrow">The quick tour</span><h1>One table, three screens</h1><p class="lede">Here's who sees what once you're playing.</p></div>
+        <div class="tour">
+          <div><span class="ico"><svg aria-hidden="true"><use href="#i-monitor"/></svg></span><b>The DM's screen</b><p>Scenes in the side bar, tokens on the map, and Combat beside it. Everything has undo.</p></div>
+          <div><span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><b>Players' phones</b><p>Each player's character, HP and turn. Their moves reach your map at once.</p></div>
+          <div><span class="ico"><svg aria-hidden="true"><use href="#i-tv"/></svg></span><b>The TV</b><p>Open the table with <code>?tv=1</code> on the TV to show the map, the turn order and party health.</p></div>
+        </div>
+        <div class="keys" aria-label="Handy keys"><span><kbd>N</kbd>Next turn</span><span><kbd>R</kbd>Roll dice on the map</span><span><kbd>F2</kbd>Rename a scene</span><span><kbd>Ctrl</kbd><kbd>Z</kbd>Undo</span></div>
+        <div class="ob-nav"><button class="btn ghost" type="button" data-back><svg aria-hidden="true"><use href="#i-undo"/></svg>Back</button><div class="r"><button class="btn primary lg" type="button" data-next>Finish<svg aria-hidden="true"><use href="#i-check"/></svg></button></div></div>
+      </section>
+
+      <!-- 5 · ready -->
+      <section class="stepv" data-step="done" hidden>
+        <div class="done-hero"><span class="seal"><svg aria-hidden="true"><use href="#i-check"/></svg></span><h1 data-done-title>You're ready</h1><p class="lede">Here's where things stand. You can come back to this page any time from "Your table".</p></div>
+        <ul class="summary" data-summary></ul>
+        <div class="ob-nav"><button class="btn ghost" type="button" data-restart>Run the welcome tour again</button><div class="r"><a class="btn" href="index.html">Back to the site</a><a class="btn primary lg" href="#" data-login>Open your campaigns<svg aria-hidden="true"><use href="#i-out"/></svg></a></div></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

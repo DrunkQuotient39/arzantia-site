@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; form-action 'self'; base-uri 'none'; object-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#09090b">
+  <title>About Arzantia: born from the cedar</title>
+  <meta name="description" content="Arzantia takes its name from arz, the cedar of Lebanon: the tree of the oldest quest, of the ships that carried the alphabet, and of the grove that has stood for a thousand years.">
+  <meta property="og:title" content="About Arzantia: born from the cedar">
+  <meta property="og:description" content="Arz is the Arabic word for cedar, the tree of Lebanon. Arzantia is the land of the cedar: a place where stories take root.">
+  <meta property="og:image" content="assets/abbey.webp">
+  <link rel="icon" href="assets/arzantia-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/about.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/site.js" defer></script>
+  <script src="js/about.js" defer></script>
+</head>
+<body data-page="about">
+  <a class="skip" href="#main">Skip to content</a>
+  <header data-nav></header>
+
+  <!-- the cedar, drawn once and used in every scene -->
+  <svg class="sr-only" aria-hidden="true" width="0" height="0"><defs>
+    <symbol id="cedar" viewBox="0 0 100 120" preserveAspectRatio="none"><path d="M46.5 120L48 30h4l1.5 90ZM1 104Q24.5 100.5 48 101.5Q71.5 100.5 95 104Q83.2 92.8 62.1 90Q48 85.8 33.9 90Q12.8 92.8 1 104ZM16 88Q36 84.8 56 85.7Q76 84.8 96 88Q86 77.6 68 75Q56 71.1 44 75Q26 77.6 16 88ZM2 73Q23.5 69.8 45 70.7Q66.5 69.8 88 73Q77.2 62.6 57.9 60Q45 56.1 32.1 60Q12.8 62.6 2 73ZM22 58Q38 55 54 55.8Q70 55 86 58Q78 48.4 63.6 46Q54 42.4 44.4 46Q30 48.4 22 58ZM20 45Q33.5 42.2 47 43Q60.5 42.2 74 45Q67.2 36.2 55.1 34Q47 30.7 38.9 34Q26.8 36.2 20 45ZM35 33Q43.5 30.5 52 31.2Q60.5 30.5 69 33Q64.8 25 57.1 23Q52 20 46.9 23Q39.2 25 35 33ZM41 24Q45.5 22 50 22.6Q54.5 22 59 24Q56.8 17.6 52.7 16Q50 13.6 47.3 16Q43.2 17.6 41 24Z"/></symbol>
+  </defs></svg>
+
+  <main id="main">
+    <!-- ═══ hero: the mountain, the snow, the mark drawing itself ═══ -->
+    <section class="ab-hero">
+      <canvas class="ab-sky" aria-hidden="true"></canvas>
+      <div class="wrap ab-hero-in">
+        <svg class="ab-mark draw" viewBox="-10 -10 530 684" role="img" aria-label="The Arzantia mark: a cedar in the shape of the letter A, with golden roots, an arc and four stars">
+          <path class="mk tree" pathLength="1" d="M255.003 72.8696C259.658 76.5177 356.126 288.9 368.505 312.192C372.024 318.815 386.595 353.155 390.885 358.837C398.852 369.391 419.645 387.265 429.986 397.06C398.307 389.386 364.416 386.032 334.309 373.272C322.583 368.301 310.67 363.883 298.273 360.953C313.239 372.544 355.279 393.109 374.177 403.026C407.053 420.578 439.759 438.446 472.293 456.627C449.784 455.195 427.286 453.601 404.8 451.842C395.693 451.156 373.337 450.454 365.712 447.663C343.974 439.704 321.656 429.247 299.79 421.316C309.737 428.814 338.689 444.069 350.456 450.515C402.563 479.055 456.742 504.329 509.14 532.458C477.293 528.581 444.673 527.185 412.785 523.637C397.253 521.908 374.17 521.818 360.145 516.059C335.658 506.003 309.528 496.274 289.728 478.223C275.628 465.59 273.042 452.687 272.19 434.187C271.663 420.155 271.307 406.116 271.123 392.075C270.585 354.97 272.777 343.095 298.6 314.762C314.309 326.037 339.289 335.817 357.465 343.338C343.583 331.526 322.378 320.234 310.721 307.457C301.233 297.058 272.364 221.992 265.295 205.122C262.104 197.506 259.329 188.635 254.933 181.718C247.753 198.758 206.943 299.642 199.4 306.902C185.377 320.4 164.439 331.246 148.614 343.882C165.876 337.399 196.721 324.176 212.121 314.677C223.107 328.198 237.784 348.885 237.906 367.219C238.072 392.14 241.948 451.123 226.828 470.845C209.016 494.081 166.929 509.357 139.487 519.145C129.762 522.614 102.19 522.096 90.9319 524.195C60.4893 527.182 30.2976 529.186 0 532.815C10.7237 527.827 22.2747 521.741 32.7364 516.137C90.5863 485.15 152.937 456.667 208.612 422.13C186.03 429.608 164.185 440.013 141.995 447.772C135.683 449.979 109.842 451.407 101.883 452.003C80.2927 453.722 58.6875 455.249 37.0701 456.584C71.3625 438.093 105.346 418.637 139.831 400.258C159.67 389.683 195.423 372.733 212.15 360.244C184.655 367.201 161.979 380.448 133.847 385.356C115.621 388.536 97.3306 392.853 79.0052 396.11C90.7018 385.47 107.71 371.209 117.352 359.369C119.761 356.411 128.235 337.31 130.431 332.594L154.668 280.939C186.375 213.768 220.558 137.998 255.003 72.8696Z" fill="#2E8C64"/><path class="mk roots" pathLength="1" d="M254.943 397.017C256.758 399.165 261.299 442.798 261.883 448.471C269.999 527.378 347.295 522.056 402.664 546.853C405.277 548.023 411.157 551.128 412.208 554.391C409.68 554.885 390.547 547.24 385.354 546.143C373.472 543.633 367.079 543.41 355.243 543.47C363.592 554.604 377.96 563.428 388.493 574.089C369.947 567.286 359.218 557.048 343.274 547.634C332.853 541.481 309.535 534.065 297.627 530.141C308.746 557.881 324.533 569.276 345.764 589.283C297.31 567.038 296.537 549.937 267.753 512.384C260.577 576.563 274.18 564.111 304.738 615.263C285.344 603.409 277.173 592.649 263.591 575.138C259.19 594.733 262.041 607.577 262.275 626.531C262.382 635.216 258.284 654.677 256.387 663.877L255.146 663.363C253.293 657.252 248.919 631.739 249.114 625.349C249.714 605.803 251.264 595.458 247.382 575.268C230.479 595.965 227.995 601.741 204.913 615.738C214.246 600.855 225.384 586.936 235.452 572.476C249.785 551.887 245.318 536.075 242.363 513.118C231.453 526.503 224.631 538.471 214.918 552.073C203.703 567.779 180.791 580.921 163.934 590.083C186.979 565.597 197.494 563.457 212.359 530.418C199.544 534.428 180.219 540.485 168.733 547.027C151.777 556.686 140.09 566.447 121.527 574.07C130.665 563.475 143.343 556.596 154.99 543.505C144.705 543.079 127.135 544.349 117.833 547.711C111.552 549.981 106.369 552.705 99.3756 554.814L98.6934 554.188C102.875 541.224 168.395 528.505 184.04 523.361C249.137 501.954 248.893 456.941 254.943 397.017Z" fill="#C49A58"/><path class="mk arc l" pathLength="1" d="M216.109 90.5391L219.106 90.5667C203.519 97.3722 187.245 102.749 171.508 109.928C151.434 118.907 132.963 131.105 116.822 146.04C79.2515 181 59.0305 221.982 57.1191 273.634C67.8738 280.374 78.5248 282.888 90.6272 286.5C77.1436 290.263 69.6085 292.375 57.0174 298.871C56.9759 306.97 63.4852 352.115 63.5415 351.91L61.0633 347.724C51.212 330.582 49.97 319.28 48.0077 300.2C33.9249 292.836 24.4506 290.691 9.20703 286.456C23.2623 282.91 35.357 280.116 48.0684 272.885C47.6517 234.063 63.971 191.968 88.1293 161.849C119.541 121.927 165.632 96.2447 216.109 90.5391Z" fill="#C49A58"/><path class="mk arc r" pathLength="1" d="M287.505 90.2177C292.721 89.9778 301.835 91.6394 307.133 92.6771C340.146 99.3651 370.724 114.89 395.605 137.595C436.039 174.048 455.162 219.29 457.989 273.003C469.784 279.866 483.642 283.017 496.762 286.472C482.015 290.541 471.978 293.592 458.096 299.897C456.555 317.256 455.272 328.883 446.985 344.372L440.832 355.741C445.465 336.134 448.533 319.534 449.099 299.225C439.024 292.56 426.876 289.672 415.312 286.498C428.73 282.794 436.728 281.028 449.026 274.213C448.616 251.915 443.874 229.91 435.065 209.422C416.958 166.515 381.403 132.186 339.922 111.796C322.241 103.105 305.55 97.5278 287.505 90.2177Z" fill="#C49A58"/><path class="mk star c" pathLength="1" d="M254.996 237.106C255.694 237.972 262.319 272.388 266.141 280.826C270.76 283.594 275.94 285.402 280.971 287.365C278.597 288.366 272.502 290.941 270.659 292.305C260.041 300.167 258.146 322.286 255.897 335.112C252.916 332.365 251.556 308.682 248.221 302.401C242.878 292.337 239.993 291.436 229.857 287.322C235.336 285.401 239.328 283.626 244.612 281.19C250.385 268.246 253.153 251.113 254.996 237.106Z" fill="#C49A58"/><path class="mk star t" pathLength="1" d="M255.733 0C261.041 14.8435 260.879 40.3115 271.965 52.5282C263.969 55.9305 261.49 57.8113 255.457 64.0294C249.733 57.7906 245.994 56.0648 238.459 52.5401C248.086 42.7032 251.707 14.9422 255.733 0Z" fill="#C49A58"/>
+        </svg>
+        <span class="eyebrow c rv">About Arzantia</span>
+        <h1 class="rv">Born from <span class="gold-text">the cedar</span></h1>
+        <p class="lede rv">Arzantia takes its name from <em>arz</em>, the Arabic word for cedar, the tree of Lebanon. People have told stories under it, sailed on it and written about it for thousands of years. We built a table worthy of its shade.</p>
+        <a class="ab-down rv" href="#name"><span>Begin the story</span><svg aria-hidden="true"><use href="#i-down"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ═══ the name ═══ -->
+    <section class="section" id="name">
+      <div class="wrap ab-name">
+        <div class="ab-word rv" aria-hidden="true">
+          <span class="draw-art" data-art="grove"></span>
+          <span class="tr">arz <i>·</i> the cedar of Lebanon</span>
+        </div>
+        <div class="ab-build rv">
+          <p class="ab-eq" aria-label="Arz plus antia makes Arzantia"><b class="p1">Arz</b><i>+</i><b class="p2">antia</b><i>=</i><b class="p3">Arzantia</b></p>
+          <h2>The land of the cedar</h2>
+          <p><b>Arz</b> is the cedar. <b>-antia</b> is the sound of a place on an old map, the way Atlantis or Arcadia name a land you could sail to if you only knew the way.</p>
+          <p>Put together, <b>Arzantia</b> is the land of the cedar: a place where stories take root, and where a party can always find its way back to the table.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ the story, ring by ring ═══ -->
+    <section class="section line ab-story" id="story">
+      <div class="wrap">
+        <div class="head center rv">
+          <span class="eyebrow c">Four rings of the cedar</span>
+          <h2>A tree that has always been in the story</h2>
+          <p class="lede">A cedar grows slowly and keeps a ring for every year. Read from the heart outwards, these four rings tell why we named a game table after it.</p>
+        </div>
+        <div class="scrolly">
+          <div class="stage" data-on="1" aria-hidden="true">
+            <div class="stage-in">
+              <!-- I: the forest of the first quest -->
+              <svg class="scene s1" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <defs><linearGradient id="g-night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1414"/><stop offset="1" stop-color="#16231c"/></linearGradient>
+                  <radialGradient id="g-moon"><stop offset="0" stop-color="#f6ecd0"/><stop offset=".6" stop-color="#e9cf8e" stop-opacity=".35"/><stop offset="1" stop-color="#e9cf8e" stop-opacity="0"/></radialGradient></defs>
+                <rect width="400" height="300" fill="url(#g-night)"/>
+                <circle class="moon" cx="300" cy="70" r="60" fill="url(#g-moon)"/><circle cx="300" cy="70" r="16" fill="#f3e6c2"/>
+                <g class="far" fill="#1d3329"><use href="#cedar" x="-10" y="120" width="80" height="96"/><use href="#cedar" x="50" y="104" width="90" height="108"/><use href="#cedar" x="250" y="110" width="84" height="100"/><use href="#cedar" x="320" y="96" width="96" height="116"/></g>
+                <path d="M0 230 Q100 205 200 222 T400 214 V300 H0Z" fill="#0f1c16"/>
+                <path class="road" d="M120 300 Q170 260 200 236 T232 212" fill="none" stroke="#c9a962" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round" opacity=".7"/>
+                <g class="near" fill="#0a130f"><use href="#cedar" x="-40" y="90" width="150" height="180"/><use href="#cedar" x="290" y="80" width="160" height="192"/></g>
+                <g class="heroes"><circle cx="160" cy="268" r="7" fill="#c9a962"/><circle cx="176" cy="262" r="7" fill="#7c8cf5"/></g>
+                <g class="eyes"><circle cx="228" cy="196" r="2.2" fill="#ff6b5e"/><circle cx="238" cy="196" r="2.2" fill="#ff6b5e"/></g>
+              </svg>
+              <!-- II: the ships and the letters -->
+              <svg class="scene s2" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <defs><linearGradient id="g-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1220"/><stop offset=".62" stop-color="#16233a"/><stop offset="1" stop-color="#0b1626"/></linearGradient></defs>
+                <rect width="400" height="300" fill="url(#g-sea)"/>
+                <g class="stars" fill="#efe9dd"><circle cx="40" cy="40" r="1.4"/><circle cx="90" cy="70" r="1"/><circle cx="150" cy="30" r="1.3"/><circle cx="230" cy="56" r="1"/><circle cx="330" cy="36" r="1.5"/><circle cx="370" cy="90" r="1"/><circle cx="270" cy="20" r="1"/></g>
+                <path class="north" d="M200 18l3 9 9 3-9 3-3 9-3-9-9-3 9-3Z" fill="#e9cf8e"/>
+                <g class="letters" font-family="Cinzel, Georgia, serif" fill="#c9a962"><text x="70" y="128" font-size="30">A</text><text x="140" y="104" font-size="24">B</text><text x="232" y="112" font-size="28">Γ</text><text x="306" y="132" font-size="26">Δ</text></g>
+                <g class="ship">
+                  <path d="M120 214 Q200 246 288 214 L280 204 Q200 226 128 204Z" fill="#6b4a2a" stroke="#2a1c0e" stroke-width="2"/>
+                  <path d="M120 214 Q104 196 116 182" fill="none" stroke="#6b4a2a" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M288 214 Q302 200 296 186" fill="none" stroke="#6b4a2a" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M204 210V128" stroke="#3a2a16" stroke-width="4"/>
+                  <path d="M168 134 Q204 128 240 134 L236 196 Q204 190 172 196Z" fill="#e8dcc0"/>
+                  <path d="M168 150 H240 M170 166 H238 M171 182 H237" stroke="#b8322e" stroke-width="4" opacity=".75"/>
+                </g>
+                <path class="wave w1" d="M-40 222 q20 -8 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V300 H-40Z" fill="#12233b"/>
+                <path class="wave w2" d="M-40 238 q20 -7 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V300 H-40Z" fill="#0d1a2e"/>
+              </svg>
+              <!-- III: the grove in the snow -->
+              <svg class="scene s3" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <defs><linearGradient id="g-snow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2230"/><stop offset="1" stop-color="#2c3646"/></linearGradient></defs>
+                <rect width="400" height="300" fill="url(#g-snow)"/>
+                <path d="M0 170 L80 90 L130 130 L200 50 L270 120 L320 80 L400 150 V300 H0Z" fill="#3b4658"/>
+                <path d="M170 84 L200 50 L230 84 Q214 78 200 88 Q186 78 170 84Z M60 110 L80 90 L100 106 Q88 102 80 110 Q72 104 60 110Z M300 98 L320 80 L340 96 Q330 92 320 100 Q310 94 300 98Z" fill="#e6ebf2"/>
+                <path d="M0 236 Q100 214 200 224 T400 222 V300 H0Z" fill="#dfe5ee"/>
+                <g class="grove" fill="#1f3a2c"><use href="#cedar" x="30" y="150" width="70" height="84"/><use href="#cedar" x="290" y="146" width="76" height="90"/></g>
+                <g class="elder"><use href="#cedar" x="80" y="70" width="240" height="204" fill="#2E8C64"/><use href="#cedar" x="80" y="70" width="240" height="204" fill="none" stroke="#e9cf8e" stroke-width=".5" opacity=".5"/></g>
+                <g class="flakes" fill="#fff"><circle cx="40" cy="20" r="1.6"/><circle cx="110" cy="0" r="1.2"/><circle cx="180" cy="30" r="1.8"/><circle cx="260" cy="10" r="1.3"/><circle cx="340" cy="26" r="1.6"/><circle cx="380" cy="4" r="1.1"/><circle cx="70" cy="60" r="1.2"/><circle cx="300" cy="50" r="1.4"/></g>
+              </svg>
+              <!-- IV: your table -->
+              <svg class="scene s4" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <defs><radialGradient id="g-glow" cx=".5" cy=".55" r=".6"><stop offset="0" stop-color="#3a2a14"/><stop offset="1" stop-color="#0b0a09"/></radialGradient>
+                  <radialGradient id="g-wood"><stop offset="0" stop-color="#7b5a35"/><stop offset="1" stop-color="#4a331c"/></radialGradient>
+                  <radialGradient id="g-flame"><stop offset="0" stop-color="#fff2b0"/><stop offset=".5" stop-color="#ffb347" stop-opacity=".6"/><stop offset="1" stop-color="#ff8a2a" stop-opacity="0"/></radialGradient></defs>
+                <rect width="400" height="300" fill="url(#g-glow)"/>
+                <use href="#cedar" x="90" y="-60" width="220" height="264" fill="#14271d" opacity=".75"/>
+                <ellipse cx="200" cy="196" rx="132" ry="74" fill="url(#g-wood)" stroke="#2a1c0e" stroke-width="4"/>
+                <ellipse cx="200" cy="196" rx="112" ry="60" fill="none" stroke="#2a1c0e" stroke-width="1" opacity=".5"/>
+                <rect x="150" y="170" width="70" height="44" rx="3" fill="#e8dcc0" transform="rotate(-8 185 192)"/>
+                <path d="M160 180 Q180 176 200 184 T214 196" stroke="#8e7232" stroke-width="1.5" fill="none" transform="rotate(-8 185 192)"/>
+                <path class="d20" d="M246 168l15 8.5v17L246 202l-15-8.5v-17Z" fill="#c9a962" stroke="#f6e7bf" stroke-width="1.5"/>
+                <g class="flame"><circle cx="118" cy="168" r="22" fill="url(#g-flame)"/><rect x="115" y="170" width="6" height="16" rx="2" fill="#efe9dd"/></g>
+                <g class="flame f2"><circle cx="286" cy="214" r="20" fill="url(#g-flame)"/><rect x="283" y="216" width="6" height="14" rx="2" fill="#efe9dd"/></g>
+                <g class="seats"><circle cx="72" cy="214" r="13" fill="#16171c" stroke="#c9a962" stroke-width="3"/><circle cx="140" cy="276" r="13" fill="#16171c" stroke="#7c8cf5" stroke-width="3"/><circle cx="262" cy="276" r="13" fill="#16171c" stroke="#5fd068" stroke-width="3"/><circle cx="330" cy="214" r="13" fill="#16171c" stroke="#e5484d" stroke-width="3"/><circle cx="200" cy="112" r="13" fill="#16171c" stroke="#e9cf8e" stroke-width="3"/></g>
+              </svg>
+              <div class="ring-tag"><b data-ring>I</b><span data-ring-name>The first quest</span></div>
+            </div>
+          </div>
+          <div class="chapters">
+            <article class="ch" data-scene="1" data-name="The first quest">
+              <span class="ch-n">Ring I</span>
+              <h3>The first quest</h3>
+              <p>The oldest adventure story we know, the Epic of Gilgamesh, sends two companions down a long road to a forest of cedars, guarded by a monster.</p>
+              <p>About four thousand years later, the shape still holds. A party, a road, a forest, and something waiting among the trees.</p>
+            </article>
+            <article class="ch" data-scene="2" data-name="Ships and letters">
+              <span class="ch-n">Ring II</span>
+              <h3>Ships and letters</h3>
+              <p>On the coast of what is now Lebanon, the Phoenicians built their ships from cedar and sailed the Mediterranean, steering by the stars.</p>
+              <p>They carried something lighter than timber: an alphabet. Greek and Latin letters grew from it, and so did the A in our mark. Every story written down since owes them a little.</p>
+            </article>
+            <article class="ch" data-scene="3" data-name="The grove that stays">
+              <span class="ch-n">Ring III</span>
+              <h3>The grove that stays</h3>
+              <p>High on Mount Lebanon, in the grove called the Cedars of God, trees stand in the snow that have outlived kingdoms. Some are more than a thousand years old.</p>
+              <p>The cedar is on Lebanon's flag, and it means what it always has: endurance, shelter, and a place to come back to.</p>
+            </article>
+            <article class="ch" data-scene="4" data-name="Your table">
+              <span class="ch-n">Ring IV</span>
+              <h3>Your table</h3>
+              <p>That's what we want Arzantia to be: a place your group comes back to, week after week.</p>
+              <p>It's a table under the branches, where a campaign can grow slowly, ring by ring, into something that lasts.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ the mark, explained ═══ -->
+    <section class="section line" id="mark">
+      <div class="wrap ab-anat">
+        <div class="anat-vis rv">
+          <svg class="ab-mark big" viewBox="-10 -10 530 684" role="img" aria-label="The Arzantia mark">
+            <path class="mk tree" pathLength="1" d="M255.003 72.8696C259.658 76.5177 356.126 288.9 368.505 312.192C372.024 318.815 386.595 353.155 390.885 358.837C398.852 369.391 419.645 387.265 429.986 397.06C398.307 389.386 364.416 386.032 334.309 373.272C322.583 368.301 310.67 363.883 298.273 360.953C313.239 372.544 355.279 393.109 374.177 403.026C407.053 420.578 439.759 438.446 472.293 456.627C449.784 455.195 427.286 453.601 404.8 451.842C395.693 451.156 373.337 450.454 365.712 447.663C343.974 439.704 321.656 429.247 299.79 421.316C309.737 428.814 338.689 444.069 350.456 450.515C402.563 479.055 456.742 504.329 509.14 532.458C477.293 528.581 444.673 527.185 412.785 523.637C397.253 521.908 374.17 521.818 360.145 516.059C335.658 506.003 309.528 496.274 289.728 478.223C275.628 465.59 273.042 452.687 272.19 434.187C271.663 420.155 271.307 406.116 271.123 392.075C270.585 354.97 272.777 343.095 298.6 314.762C314.309 326.037 339.289 335.817 357.465 343.338C343.583 331.526 322.378 320.234 310.721 307.457C301.233 297.058 272.364 221.992 265.295 205.122C262.104 197.506 259.329 188.635 254.933 181.718C247.753 198.758 206.943 299.642 199.4 306.902C185.377 320.4 164.439 331.246 148.614 343.882C165.876 337.399 196.721 324.176 212.121 314.677C223.107 328.198 237.784 348.885 237.906 367.219C238.072 392.14 241.948 451.123 226.828 470.845C209.016 494.081 166.929 509.357 139.487 519.145C129.762 522.614 102.19 522.096 90.9319 524.195C60.4893 527.182 30.2976 529.186 0 532.815C10.7237 527.827 22.2747 521.741 32.7364 516.137C90.5863 485.15 152.937 456.667 208.612 422.13C186.03 429.608 164.185 440.013 141.995 447.772C135.683 449.979 109.842 451.407 101.883 452.003C80.2927 453.722 58.6875 455.249 37.0701 456.584C71.3625 438.093 105.346 418.637 139.831 400.258C159.67 389.683 195.423 372.733 212.15 360.244C184.655 367.201 161.979 380.448 133.847 385.356C115.621 388.536 97.3306 392.853 79.0052 396.11C90.7018 385.47 107.71 371.209 117.352 359.369C119.761 356.411 128.235 337.31 130.431 332.594L154.668 280.939C186.375 213.768 220.558 137.998 255.003 72.8696Z" fill="#2E8C64"/><path class="mk roots" pathLength="1" d="M254.943 397.017C256.758 399.165 261.299 442.798 261.883 448.471C269.999 527.378 347.295 522.056 402.664 546.853C405.277 548.023 411.157 551.128 412.208 554.391C409.68 554.885 390.547 547.24 385.354 546.143C373.472 543.633 367.079 543.41 355.243 543.47C363.592 554.604 377.96 563.428 388.493 574.089C369.947 567.286 359.218 557.048 343.274 547.634C332.853 541.481 309.535 534.065 297.627 530.141C308.746 557.881 324.533 569.276 345.764 589.283C297.31 567.038 296.537 549.937 267.753 512.384C260.577 576.563 274.18 564.111 304.738 615.263C285.344 603.409 277.173 592.649 263.591 575.138C259.19 594.733 262.041 607.577 262.275 626.531C262.382 635.216 258.284 654.677 256.387 663.877L255.146 663.363C253.293 657.252 248.919 631.739 249.114 625.349C249.714 605.803 251.264 595.458 247.382 575.268C230.479 595.965 227.995 601.741 204.913 615.738C214.246 600.855 225.384 586.936 235.452 572.476C249.785 551.887 245.318 536.075 242.363 513.118C231.453 526.503 224.631 538.471 214.918 552.073C203.703 567.779 180.791 580.921 163.934 590.083C186.979 565.597 197.494 563.457 212.359 530.418C199.544 534.428 180.219 540.485 168.733 547.027C151.777 556.686 140.09 566.447 121.527 574.07C130.665 563.475 143.343 556.596 154.99 543.505C144.705 543.079 127.135 544.349 117.833 547.711C111.552 549.981 106.369 552.705 99.3756 554.814L98.6934 554.188C102.875 541.224 168.395 528.505 184.04 523.361C249.137 501.954 248.893 456.941 254.943 397.017Z" fill="#C49A58"/><path class="mk arc l" pathLength="1" d="M216.109 90.5391L219.106 90.5667C203.519 97.3722 187.245 102.749 171.508 109.928C151.434 118.907 132.963 131.105 116.822 146.04C79.2515 181 59.0305 221.982 57.1191 273.634C67.8738 280.374 78.5248 282.888 90.6272 286.5C77.1436 290.263 69.6085 292.375 57.0174 298.871C56.9759 306.97 63.4852 352.115 63.5415 351.91L61.0633 347.724C51.212 330.582 49.97 319.28 48.0077 300.2C33.9249 292.836 24.4506 290.691 9.20703 286.456C23.2623 282.91 35.357 280.116 48.0684 272.885C47.6517 234.063 63.971 191.968 88.1293 161.849C119.541 121.927 165.632 96.2447 216.109 90.5391Z" fill="#C49A58"/><path class="mk arc r" pathLength="1" d="M287.505 90.2177C292.721 89.9778 301.835 91.6394 307.133 92.6771C340.146 99.3651 370.724 114.89 395.605 137.595C436.039 174.048 455.162 219.29 457.989 273.003C469.784 279.866 483.642 283.017 496.762 286.472C482.015 290.541 471.978 293.592 458.096 299.897C456.555 317.256 455.272 328.883 446.985 344.372L440.832 355.741C445.465 336.134 448.533 319.534 449.099 299.225C439.024 292.56 426.876 289.672 415.312 286.498C428.73 282.794 436.728 281.028 449.026 274.213C448.616 251.915 443.874 229.91 435.065 209.422C416.958 166.515 381.403 132.186 339.922 111.796C322.241 103.105 305.55 97.5278 287.505 90.2177Z" fill="#C49A58"/><path class="mk star c" pathLength="1" d="M254.996 237.106C255.694 237.972 262.319 272.388 266.141 280.826C270.76 283.594 275.94 285.402 280.971 287.365C278.597 288.366 272.502 290.941 270.659 292.305C260.041 300.167 258.146 322.286 255.897 335.112C252.916 332.365 251.556 308.682 248.221 302.401C242.878 292.337 239.993 291.436 229.857 287.322C235.336 285.401 239.328 283.626 244.612 281.19C250.385 268.246 253.153 251.113 254.996 237.106Z" fill="#C49A58"/><path class="mk star t" pathLength="1" d="M255.733 0C261.041 14.8435 260.879 40.3115 271.965 52.5282C263.969 55.9305 261.49 57.8113 255.457 64.0294C249.733 57.7906 245.994 56.0648 238.459 52.5401C248.086 42.7032 251.707 14.9422 255.733 0Z" fill="#C49A58"/>
+          </svg>
+        </div>
+        <div class="anat-copy">
+          <div class="head rv"><span class="eyebrow">The mark</span><h2>Read the tree</h2><p class="lede">Every part of the Arzantia mark carries a piece of the story. Point at one to see it.</p></div>
+          <ul class="anat-list rv" role="list">
+            <li><button type="button" data-part="tree"><i class="sw g"></i><span><b>A cedar, and a letter</b>The tree is drawn as an A. Our A comes, through Greek, from the Phoenician aleph: the cedar sailors' first letter.</span></button></li>
+            <li><button type="button" data-part="roots"><i class="sw y"></i><span><b>Golden roots</b>The stories underneath: the ones a group keeps telling, long after the dice are put away.</span></button></li>
+            <li><button type="button" data-part="stars"><i class="sw y"></i><span><b>Four stars</b>The points of a compass, the stars the ships steered by, and the choice of road at every crossroads.</span></button></li>
+            <li><button type="button" data-part="arc"><i class="sw y"></i><span><b>The arc</b>The sky over the table: the shelter of the branches, and the edge of the map still waiting to be explored.</span></button></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ what the cedar taught us ═══ -->
+    <section class="section line" id="values">
+      <div class="wrap">
+        <div class="head center rv"><span class="draw-art crest" data-art="book" aria-hidden="true"></span><span class="eyebrow c">What the cedar taught us</span><h2>Four things we build by</h2></div>
+        <div class="ab-vals" data-stagger>
+          <article class="val"><span class="val-ico"><svg aria-hidden="true"><use href="#i-lock"/></svg></span><h3>Deep roots</h3><p>Your scenes, tokens, notes and battles stay with your campaign. Your world is yours, and it stays where you planted it.</p></article>
+          <article class="val"><span class="val-ico"><svg aria-hidden="true"><use href="#i-users"/></svg></span><h3>Wide shelter</h3><p>Everyone fits under the branches: the DM at the screen, the players on their phones, the whole room at the TV.</p></article>
+          <article class="val"><span class="val-ico"><svg aria-hidden="true"><use href="#i-replay"/></svg></span><h3>Slow growth</h3><p>Good campaigns take years. The Battle Chronicle, the notes and the quest journal keep every ring of yours.</p></article>
+          <article class="val"><span class="val-ico"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><h3>Far reach</h3><p>Cedar crossed the sea. Your table can too: a private link brings in friends from anywhere.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ the rings: every session adds one ═══ -->
+    <section class="section line" id="rings">
+      <div class="wrap ab-rings">
+        <div class="rings-vis rv">
+          <canvas class="trunk" aria-label="A cross-section of a cedar trunk, one ring for every session played"></canvas>
+        </div>
+        <div class="rings-copy rv">
+          <span class="eyebrow">Every session, a ring</span>
+          <h2>Grow something that lasts</h2>
+          <p class="lede">A cedar writes its history in rings. A campaign does the same, one session at a time. Add a few and watch your story grow.</p>
+          <div class="rings-ctl">
+            <button class="btn primary" type="button" data-add><svg aria-hidden="true"><use href="#i-heart"/></svg>Play a session</button>
+            <button class="btn ghost" type="button" data-reset><svg aria-hidden="true"><use href="#i-undo"/></svg>Start a new campaign</button>
+          </div>
+          <p class="rings-out" aria-live="polite"><b data-count>12</b> sessions, <span data-years>about three months</span> of play</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <span class="eyebrow c rv">Under the branches</span>
+        <h2 class="rv">Plant your campaign</h2>
+        <p class="lede rv">Create your account, name your campaign, and gather your party under the cedar.</p>
+        <div class="cta-row rv"><a class="btn primary lg" href="signup.html">Try Arzantia<svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="btn lg" href="features.html">Explore the features<svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </section>
+  </main>
+  <footer data-foot></footer>
+</body>
+</html>

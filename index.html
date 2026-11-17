@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; form-action 'self'; base-uri 'none'; object-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#09090b">
+  <title>Arzantia: the virtual tabletop for your table</title>
+  <meta name="description" content="Arzantia, named for the cedar of Lebanon, runs your D&D game from one screen: maps, tokens, combat and dice for the DM, a live map on the TV, and every player's character on their own phone.">
+  <meta property="og:title" content="Arzantia: the virtual tabletop for your table">
+  <meta property="og:description" content="Maps, tokens, combat and dice on your screen. The map on the TV. Each character on its player's phone.">
+  <meta property="og:image" content="assets/abbey.webp">
+  <link rel="icon" href="assets/arzantia-mark.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/im-fell-english-1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/play.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/site.js" defer></script>
+  <script src="js/play.js" defer></script>
+</head>
+<body data-page="home">
+  <a class="skip" href="#main">Skip to content</a>
+  <header data-nav></header>
+
+  <main id="main">
+    <!-- ═══ hero ═══ -->
+    <section class="hero">
+      <div class="hero-bg"><canvas id="embers" aria-hidden="true"></canvas>
+        <div class="hero-dice" aria-hidden="true">
+          <span class="hd hd-a"><span class="draw-art" data-art="d20"></span></span>
+          <span class="hd hd-b"><span class="draw-art" data-art="d6"></span></span>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="hero-copy">
+          <a class="badge cedar rv" href="about.html"><b><svg aria-hidden="true"><use href="#i-cedar"/></svg>Arz</b>Born from the cedar of Lebanon</a>
+          <h1 class="rv">Run the whole table from <span class="gold-text">one screen</span></h1>
+          <p class="lede rv">Arzantia is a virtual tabletop built for the game in front of you, and a place your party gathers, like stories under a cedar. Maps, tokens, combat and dice on your screen, the battle map on the TV, and each character on its player's phone.</p>
+          <div class="cta-row rv">
+            <a class="btn primary lg" href="signup.html">Try Arzantia<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn lg" href="#see"><svg aria-hidden="true"><use href="#i-play"/></svg>See it in action</a>
+          </div>
+          <div class="cta-note rv">
+            <span><svg aria-hidden="true"><use href="#i-check"/></svg>Runs in your browser</span>
+            <span><svg aria-hidden="true"><use href="#i-check"/></svg>Players need only a phone</span>
+            <span><svg aria-hidden="true"><use href="#i-check"/></svg>Nothing to download</span>
+          </div>
+        </div>
+
+        <div class="hero-stage rv">
+          <div class="app" role="img" aria-label="The Arzantia table: a courtyard battle map with tokens, the initiative order, and a player's phone">
+            <aside class="app-side" aria-hidden="true">
+              <div class="app-dots"><i></i><i></i><i></i></div>
+              <span class="app-nav on"><svg><use href="#i-map"/></svg>Map</span>
+              <span class="app-nav"><svg><use href="#i-users"/></svg>Characters</span>
+              <span class="app-nav"><svg><use href="#i-skull"/></svg>Bestiary</span>
+              <span class="app-nav"><svg><use href="#i-swords"/></svg>Encounters</span>
+              <span class="app-nav"><svg><use href="#i-feather"/></svg>Notes</span>
+              <span class="app-nav"><svg><use href="#i-flag"/></svg>Quests</span>
+              <div class="scene-list"><span>SCENES</span><div class="scene-th on"></div><div class="scene-th b"></div></div>
+            </aside>
+            <div class="app-main" aria-hidden="true">
+              <div class="map"></div>
+              <div class="fog"></div>
+              <svg class="trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d=""/></svg>
+              <div class="tok" data-t="b">B</div>
+              <div class="tok ally2" data-t="k">K</div>
+              <div class="tok ally3 aura" data-t="m">M<span class="cond"></span></div>
+              <div class="tok foe" data-t="o">O</div>
+              <div class="tok foe" data-t="g">G</div>
+              <span class="ruler"></span>
+              <div class="app-bar">
+                <span class="chip scene">Blackbriar Courtyard</span>
+                <span class="chip hide-s"><b data-turn>Brynn is up</b></span>
+                <span class="sp"></span>
+                <span class="chip"><i class="live"></i><b>3</b>&nbsp;online</span>
+              </div>
+              <div class="init">
+                <div class="init-h">Round 2<small>Initiative</small></div>
+                <div class="init-row h90"><i>B</i><span>Brynn</span><span class="hp"><b></b></span></div>
+                <div class="init-row h62 k"><i>K</i><span>Kael</span><span class="hp"><b></b></span></div>
+                <div class="init-row foe o"><i>O</i><span>The Ogre</span><span class="hp"><b></b></span></div>
+              </div>
+              <div class="roll-toast"><span class="d">17</span><span>Brynn rolls <b>d20 + 5</b></span><b hidden></b></div>
+            </div>
+          </div>
+          <div class="app-float phone-float" aria-hidden="true">
+              <div class="scr">
+                <div class="pt"><i>K</i><div><b>Kael</b><small>Wizard · Level 5</small></div></div>
+                <div class="bar"><b></b></div>
+                <div class="st"><span>14<small>DEF</small></span><span>9<small>SPD</small></span><span>5<small>LVL</small></span></div>
+                <div class="go">End my turn</div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ three screens ═══ -->
+    <section class="section tight line">
+      <div class="wrap">
+        <div class="head center rv">
+          <span class="eyebrow c">One table, three screens</span>
+          <h2>Everyone sees what they should</h2>
+        </div>
+        <div class="screens" data-stagger>
+          <article class="screen-card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-monitor"/></svg></span>
+            <span class="who-tag">The DM</span>
+            <h3>Your screen runs the game</h3>
+            <p>Scenes, tokens, fog, the bestiary, notes and the initiative order, all in one window, with undo for every move.</p>
+          </article>
+          <article class="screen-card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+            <span class="who-tag">The players</span>
+            <h3>Their phones hold their characters</h3>
+            <p>Players scan a code, pick their character and play. No app to install, no account needed to get started.</p>
+          </article>
+          <article class="screen-card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-tv"/></svg></span>
+            <span class="who-tag">The room</span>
+            <h3>The TV shows the battle</h3>
+            <p>A framed, live map with the turn order and party health, and only what you have revealed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ features ═══ -->
+    <section class="section" id="features">
+      <div class="feat-bg" aria-hidden="true">
+        <svg class="magic" viewBox="0 0 600 600">
+          <defs><path id="mc-ring" d="M300 52a248 248 0 1 1 0 496a248 248 0 1 1 0 -496"/></defs>
+          <g class="mc-a"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="262"/><path class="tk" d="M568.0 300.0L580.0 300.0M566.5 328.0L578.5 329.3M562.1 355.7L573.9 358.2M554.9 382.8L566.3 386.5M544.8 409.0L555.8 413.9M532.1 434.0L542.5 440.0M516.8 457.5L526.5 464.6M499.2 479.3L508.1 487.4M479.3 499.2L487.4 508.1M457.5 516.8L464.6 526.5M434.0 532.1L440.0 542.5M409.0 544.8L413.9 555.8M382.8 554.9L386.5 566.3M355.7 562.1L358.2 573.9M328.0 566.5L329.3 578.5M300.0 568.0L300.0 580.0M272.0 566.5L270.7 578.5M244.3 562.1L241.8 573.9M217.2 554.9L213.5 566.3M191.0 544.8L186.1 555.8M166.0 532.1L160.0 542.5M142.5 516.8L135.4 526.5M120.7 499.2L112.6 508.1M100.8 479.3L91.9 487.4M83.2 457.5L73.5 464.6M67.9 434.0L57.5 440.0M55.2 409.0L44.2 413.9M45.1 382.8L33.7 386.5M37.9 355.7L26.1 358.2M33.5 328.0L21.5 329.3M32.0 300.0L20.0 300.0M33.5 272.0L21.5 270.7M37.9 244.3L26.1 241.8M45.1 217.2L33.7 213.5M55.2 191.0L44.2 186.1M67.9 166.0L57.5 160.0M83.2 142.5L73.5 135.4M100.8 120.7L91.9 112.6M120.7 100.8L112.6 91.9M142.5 83.2L135.4 73.5M166.0 67.9L160.0 57.5M191.0 55.2L186.1 44.2M217.2 45.1L213.5 33.7M244.3 37.9L241.8 26.1M272.0 33.5L270.7 21.5M300.0 32.0L300.0 20.0M328.0 33.5L329.3 21.5M355.7 37.9L358.2 26.1M382.8 45.1L386.5 33.7M409.0 55.2L413.9 44.2M434.0 67.9L440.0 57.5M457.5 83.2L464.6 73.5M479.3 100.8L487.4 91.9M499.2 120.7L508.1 112.6M516.8 142.5L526.5 135.4M532.1 166.0L542.5 160.0M544.8 191.0L555.8 186.1M554.9 217.2L566.3 213.5M562.1 244.3L573.9 241.8M566.5 272.0L578.5 270.7"/>
+            <text><textPath href="#mc-ring">ROLL FOR INITIATIVE ✦ THE FOG LIFTS ✦ THE CEDAR REMEMBERS ✦ GATHER THE PARTY ✦ ROLL FOR INITIATIVE ✦ THE FOG LIFTS ✦ THE CEDAR REMEMBERS ✦ GATHER THE PARTY ✦ </textPath></text></g>
+          <g class="mc-b"><circle cx="300" cy="300" r="200"/><path d="M300.0 100.0L386.8 480.2L143.6 175.3L495.0 344.5L105.0 344.5L456.4 175.3L213.2 480.2Z"/><circle cx="300" cy="300" r="96"/><g class="st"><use href="#i-star4" x="291.0" y="91.0" width="18" height="18"/><use href="#i-star4" x="447.4" y="166.3" width="18" height="18"/><use href="#i-star4" x="486.0" y="335.5" width="18" height="18"/><use href="#i-star4" x="377.8" y="471.2" width="18" height="18"/><use href="#i-star4" x="204.2" y="471.2" width="18" height="18"/><use href="#i-star4" x="96.0" y="335.5" width="18" height="18"/><use href="#i-star4" x="134.6" y="166.3" width="18" height="18"/></g></g>
+        </svg>
+        <svg class="fb-cedar"><use href="#i-cedar"/></svg>
+        <span class="hd fa fa1"><span class="draw-art" data-art="sword"></span></span>
+        <span class="hd fa fa2"><span class="draw-art" data-art="potion"></span></span>
+        <span class="hd fa fa3"><span class="draw-art" data-art="map"></span></span>
+        <span class="hd fa fa4"><span class="draw-art" data-art="book"></span></span>
+      </div>
+      <div class="wrap">
+        <div class="head center rv">
+          <span class="eyebrow c">Everything at the table</span>
+          <h2>All your tools, under one cedar</h2>
+          <p class="lede">Arzantia replaces the binder, the battle mat and a stack of browser tabs with one place that remembers everything.</p>
+        </div>
+        <div class="grid-cards" data-stagger>
+          <article class="card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-map"/></svg></span>
+            <h3>Maps &amp; scenes</h3>
+            <p>Drop in a battle map, set its real size in metres, rotate it, and keep every scene in a library with previews.</p>
+          </article>
+          <article class="card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-eye"/></svg></span>
+            <h3>Fog of war</h3>
+            <p>Hide the map and reveal it room by room. Players and the TV see only what you've uncovered.</p>
+          </article>
+          <article class="card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-users"/></svg></span>
+            <h3>Tokens &amp; conditions</h3>
+            <p>Characters and monsters with HP, stats and portraits. Conditions glow on the token so nobody forgets they're stunned.</p>
+          </article>
+          <article class="card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-swords"/></svg></span>
+            <h3>Combat tracker</h3>
+            <p>Roll initiative, then press N for the next turn. The map brings whoever is up into view.</p>
+          </article>
+          <article class="card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-dice"/></svg></span>
+            <h3>Physical 3D dice</h3>
+            <p>Real physics, with every die from d4 to d20. Throw from the map with R, save the rolls you make often, and let the table hear them land.</p>
+          </article>
+          <article class="card new">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-replay"/></svg></span>
+            <h3>Battle Chronicle</h3>
+            <p>Every move, hit and roll is recorded. Replay any turn, narrate the moment, and share the caption on phones and the TV.</p>
+          </article>
+          <article class="card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-skull"/></svg></span>
+            <h3>Bestiary &amp; encounters</h3>
+            <p>Build encounters from your bestiary in a few clicks, then drop the whole group onto the map.</p>
+          </article>
+          <article class="card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-feather"/></svg></span>
+            <h3>Notes &amp; quests</h3>
+            <p>A notebook with Write and Read modes, and a quest journal that keeps the story straight between sessions.</p>
+          </article>
+          <article class="card">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-cube"/></svg></span>
+            <h3>3D terrain view</h3>
+            <p>Lift the map into 3D when the moment calls for it: walls, heights and terrain, from the same scene.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ the adventurer's codex: drawn pieces of kit ═══ -->
+    <section class="section line" id="codex">
+      <div class="wrap">
+        <div class="head center rv">
+          <span class="eyebrow c">The adventurer's codex</span>
+          <h2>Everything an adventure needs</h2>
+          <p class="lede">Every piece of the kit is a part of Arzantia. Point at one to draw it again, or follow it to see it at work.</p>
+        </div>
+        <div class="codex" data-stagger>
+          <a class="cx" href="features.html#dice"><span class="draw-art" data-art="d20" aria-hidden="true"></span><b>The dice</b><span>Physical 3D dice, from d4 to d20, that land where they land</span></a>
+          <a class="cx" href="features.html#fight"><span class="draw-art" data-art="sword" aria-hidden="true"></span><b>The strike</b><span>Hits, misses and critical blows, played out on every screen</span></a>
+          <a class="cx" href="features.html#tokens"><span class="draw-art" data-art="shield" aria-hidden="true"></span><b>Defence &amp; conditions</b><span>Defence on every card, and conditions that glow on the token</span></a>
+          <a class="cx" href="features.html#fight"><span class="draw-art" data-art="potion" aria-hidden="true"></span><b>Healing &amp; death saves</b><span>Down is not dead: three saves stand between a hero and the end</span></a>
+          <a class="cx" href="features.html#chronicle"><span class="draw-art" data-art="book" aria-hidden="true"></span><b>The chronicle</b><span>Every turn written down, ready to replay and narrate</span></a>
+          <a class="cx" href="features.html#forge"><span class="draw-art" data-art="map" aria-hidden="true"></span><b>Maps &amp; the map maker</b><span>Dungeons, caves and taverns, drawn on the grid in seconds</span></a>
+          <a class="cx" href="features.html#bestiary"><span class="draw-art" data-art="chest" aria-hidden="true"></span><b>Bestiary &amp; encounters</b><span>Build the fight from your creatures and drop it on the map</span></a>
+          <a class="cx" href="features.html#battlefield"><span class="draw-art" data-art="hat" aria-hidden="true"></span><b>Spells on the map</b><span>Fire, frost and lightning, laid out in their true shapes</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ showcase ═══ -->
+    <section class="section line" id="see">
+      <div class="wrap show">
+        <div class="head center rv">
+          <span class="draw-art crest" data-art="d20" aria-hidden="true"></span>
+          <span class="eyebrow c">Try it right here</span>
+          <h2>See Arzantia in action</h2>
+          <p class="lede">These are small, playable pieces of the real thing. Go ahead and click.</p>
+        </div>
+        <div data-tabs class="show rv">
+          <div class="tabs" role="tablist" aria-label="Arzantia, piece by piece">
+            <span class="pill" aria-hidden="true"></span>
+            <button class="tab" role="tab" id="t-fog" aria-controls="p-fog" aria-selected="true"><svg aria-hidden="true"><use href="#i-eye"/></svg>Fog of war</button>
+            <button class="tab" role="tab" id="t-cond" aria-controls="p-cond" aria-selected="false" tabindex="-1"><svg aria-hidden="true"><use href="#i-spark"/></svg>Conditions</button>
+            <button class="tab" role="tab" id="t-cb" aria-controls="p-cb" aria-selected="false" tabindex="-1"><svg aria-hidden="true"><use href="#i-swords"/></svg>Combat</button>
+            <button class="tab" role="tab" id="t-dice" aria-controls="p-dice" aria-selected="false" tabindex="-1"><svg aria-hidden="true"><use href="#i-dice"/></svg>Dice</button>
+            <button class="tab" role="tab" id="t-room" aria-controls="p-room" aria-selected="false" tabindex="-1"><svg aria-hidden="true"><use href="#i-phone"/></svg>Phones &amp; TV</button>
+            <button class="tab" role="tab" id="t-move" aria-controls="p-move" aria-selected="false" tabindex="-1"><svg aria-hidden="true"><use href="#i-ruler"/></svg>Move &amp; see</button>
+          </div>
+          <div class="panes">
+            <div class="pane in" role="tabpanel" id="p-fog" aria-labelledby="t-fog">
+              <div class="pane-copy">
+                <span class="eyebrow">Maps</span>
+                <h3 class="h2">Reveal the world as they explore it</h3>
+                <p>Paint the fog away as the party moves. The TV and the players' phones update the moment you do.</p>
+                <ul class="checks"><li>Reveal by brush, by room, or the whole scene at once</li><li>Maps keep their real size, so movement and measuring stay honest</li><li>Turn a map to fit your table without losing a token</li></ul>
+              </div>
+              <div>
+                <div class="pane-vis">
+                  <div class="fogdemo"><canvas aria-label="Fog of war over a courtyard map. Drag to reveal it."></canvas></div>
+                  <span class="vis-hint"><svg><use href="#i-hand"/></svg>Drag across the map to reveal it</span>
+                  <button class="btn sm fog-reset" type="button"><svg aria-hidden="true"><use href="#i-undo"/></svg>Fog it again</button>
+                </div>
+              </div>
+            </div>
+            <div class="pane" role="tabpanel" id="p-cond" aria-labelledby="t-cond" hidden>
+              <div class="pane-copy">
+                <span class="eyebrow">Tokens</span>
+                <h3 class="h2">Conditions you can't miss</h3>
+                <p>Each condition has its own colour and icon. The token glows with it, so a frightened rogue reads at a glance from across the room.</p>
+                <ul class="checks"><li>Up to three badges on the token, with rounds left</li><li>HP, defence, speed and stats in the token's card</li><li>Change many tokens at once with one undo step</li></ul>
+              </div>
+              <div class="pane-vis">
+                <div class="conddemo">
+                  <div class="big-tok">S<span class="badges"></span><span class="hpb">HP 27 / 34</span></div>
+                  <div class="cond-chips" role="group" aria-label="Conditions on Soren"></div>
+                </div>
+              </div>
+            </div>
+            <div class="pane" role="tabpanel" id="p-cb" aria-labelledby="t-cb" hidden>
+              <div class="pane-copy">
+                <span class="eyebrow">Combat</span>
+                <h3 class="h2">Turns that keep the pace up</h3>
+                <p>One button or the N key moves the fight along. The order, the round and who's on deck are always in view.</p>
+                <ul class="checks"><li>Player turns arrive from their phones</li><li>Replay any earlier turn without touching the live table</li><li>Free move when you need to set the scene</li></ul>
+              </div>
+              <div class="pane-vis">
+                <div class="combatdemo">
+                  <div class="cd-head"><div><b data-up>Brynn is up</b><br><small data-round>Round 1</small></div><small>Next: <span data-who></span></small></div>
+                  <ul class="cd-list" aria-live="polite"></ul>
+                  <div class="cd-turn">
+                    <button class="btn" type="button" data-prev aria-label="Previous turn"><svg aria-hidden="true"><use href="#i-undo"/></svg></button>
+                    <button class="btn primary" type="button" data-next>Next turn <kbd>N</kbd></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pane" role="tabpanel" id="p-dice" aria-labelledby="t-dice" hidden>
+              <div class="pane-copy">
+                <span class="eyebrow">Dice</span>
+                <h3 class="h2">Dice with weight to them</h3>
+                <p>In Arzantia the dice are 3D and tumble with real physics. The face that lands is the result, with no correction afterwards. Here's a taste.</p>
+                <ul class="checks"><li>d4, d6, d8, d10, d12 and d20, up to four at once</li><li>Saved rolls for the attacks you make every turn</li><li>Share the roll on the TV, or keep it secret</li></ul>
+              </div>
+              <div class="pane-vis">
+                <div class="dicedemo">
+                  <div class="die-stage">
+                    <button class="die" type="button" aria-label="Roll the die">
+                      <span class="face"><svg viewBox="0 0 150 150" aria-hidden="true"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1dca6"/><stop offset=".55" stop-color="#c9a962"/><stop offset="1" stop-color="#7a6128"/></linearGradient></defs><path d="" fill="url(#dg)" stroke="#f6e7bf" stroke-width="2" stroke-linejoin="round"/></svg>
+                      <span class="n">20</span></span>
+                    </button>
+                    <p class="die-out" aria-live="polite">Tap the die to roll a d20</p>
+                  </div>
+                  <div>
+                    <div class="dice-hist" aria-label="Last rolls"></div>
+                    <div class="dice-pick" role="group" aria-label="Choose a die">
+                      <button type="button" data-d="4" aria-pressed="false">d4</button><button type="button" data-d="6" aria-pressed="false">d6</button><button type="button" data-d="8" aria-pressed="false">d8</button><button type="button" data-d="10" aria-pressed="false">d10</button><button type="button" data-d="12" aria-pressed="false">d12</button><button type="button" data-d="20" aria-pressed="true">d20</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pane" role="tabpanel" id="p-room" aria-labelledby="t-room" hidden>
+              <div class="pane-copy">
+                <span class="eyebrow">The room</span>
+                <h3 class="h2">Players join in seconds</h3>
+                <p>The TV shows a code. Players scan it, choose their character, and their phone becomes their sheet. You see who's here from the header.</p>
+                <ul class="checks"><li>Works on the same Wi-Fi, or online through a private link</li><li>A player can take their character back on a new phone</li><li>Invite links and codes from your account</li></ul>
+              </div>
+              <div class="pane-vis">
+                <div class="roomdemo">
+                  <div class="tv"><span class="tv-turn">Kael is up</span><span class="tv-qr"></span></div>
+                  <div class="mini-phone a cblue"><span class="f">K</span><b>Kael</b><span class="l g"></span><span class="l s"></span><span class="btnx"></span></div>
+                  <div class="mini-phone b cgreen"><span class="f">M</span><b>Mira</b><span class="l g"></span><span class="l s"></span><span class="btnx"></span></div>
+                  <div class="joined" aria-live="polite">
+                    <span class="cblue"><i>K</i>Sam joined as Kael<em></em></span>
+                    <span class="cgreen"><i>M</i>Lea joined as Mira<em></em></span>
+                    <span class="cgold"><i>B</i>Noor joined as Brynn<em></em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pane" role="tabpanel" id="p-move" aria-labelledby="t-move" hidden>
+              <div class="pane-copy">
+                <span class="eyebrow">Movement</span>
+                <h3 class="h2">Every step measured</h3>
+                <p>Drag a token and the ruler counts the metres. Its vision clears the fog as it walks, so the dungeon opens up one room at a time.</p>
+                <ul class="checks"><li>The ruler counts in metres, on a 1.5 m grid</li><li>Each token's vision, up to 15 m, clears the fog</li><li>The TV and the phones see only what's been cleared</li></ul>
+              </div>
+              <div class="pane-vis">
+                <div class="movedemo">
+                  <div class="mv-map"><canvas tabindex="0" aria-label="A dungeon under fog. Drag Brynn's token, click a square, or use the arrow keys."></canvas><span class="vis-hint"><svg><use href="#i-hand"/></svg>Drag Brynn, or click a square</span></div>
+                  <div class="mv-bar"><label class="range mv-vision"><span><span>Vision</span><output>6 m</output></span><input class="rng" type="range" min="0" max="15" step="1.5" value="6"></label><button class="btn sm mv-dash" type="button" aria-pressed="false">Dash</button><button class="btn sm mv-reset" type="button"><svg aria-hidden="true"><use href="#i-undo"/></svg>Fog</button><p class="readout mv-out" aria-live="polite">Speed 9 m. Drag Brynn, or click a square.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ map maker ═══ -->
+    <section class="section line" id="forge">
+      <div class="deco" aria-hidden="true"><svg><use href="#i-d20"/></svg><svg><use href="#i-cedar"/></svg><svg><use href="#i-d20"/></svg><svg><use href="#i-cedar"/></svg></div>
+      <div class="wrap">
+        <div class="play-head">
+          <div class="head rv"><span class="eyebrow">Map maker</span><h2>A fresh map before anyone notices</h2><p class="lede">Pick a place, set how busy it is, and Arzantia draws it on the grid in seconds. Same seed, same map, every time.</p></div>
+          <ul class="checks rv"><li>Dungeons, caves, forests, taverns and ruins</li><li>The grid is exact, so tokens and the ruler line up</li><li>Torches, hearths and campfires light the scene</li></ul>
+        </div>
+        <div class="play gendemo rv">
+          <div class="gd-canvas"><canvas aria-label="A battle map drawn by the map maker"></canvas><span class="gd-seed"></span></div>
+          <div class="gd-side">
+            <div class="grp"><span class="ctl-label">Place</span><div class="seg-btns gd-types" role="group" aria-label="Kind of map"></div></div>
+            <label class="range"><span><span data-l="1">Room density</span></span><input class="rng" type="range" data-k="1" min="0.1" max="1" step="0.05" value="0.55"></label>
+            <label class="range gd-k2"><span><span>Corridor width</span></span><input class="rng" type="range" data-k="2" min="1" max="3" step="1" value="1"></label>
+            <label class="range"><span><span data-l="3">Clutter</span></span><input class="rng" type="range" data-k="3" min="0" max="1" step="0.05" value="0.45"></label>
+            <button class="btn primary gd-roll" type="button"><svg aria-hidden="true"><use href="#i-dice"/></svg>Roll a new map</button>
+            <p class="gd-note">It's drawn right here on the page, with no network and no AI model, the same way the app draws it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ marks ═══ -->
+    <section class="section line" id="battlefield">
+      <div class="deco" aria-hidden="true"><svg><use href="#i-d20"/></svg><svg><use href="#i-cedar"/></svg><svg><use href="#i-d20"/></svg><svg><use href="#i-cedar"/></svg></div>
+      <div class="wrap">
+        <div class="play-head">
+          <div class="head rv"><span class="eyebrow">Marks on the map</span><h2>Paint the battlefield</h2><p class="lede">Fire, frost, poison gas, a wall of lightning. Lay a spell's area on the map in its true shape and size, and see at once who's caught in it.</p></div>
+          <ul class="checks rv"><li>Thirteen marks, each with its own look and motion</li><li>Circles, cones, walls and squares, measured in metres</li><li>A cone is as wide at its end as it is long, as the rules say</li></ul>
+        </div>
+        <div class="play markdemo rv">
+          <div class="md-top md-kinds" role="group" aria-label="Mark"></div>
+          <div class="md-map"><canvas tabindex="0" aria-label="A courtyard battle map with Kael, Brynn and their foes. Click to place the chosen mark; Enter places it in the middle."></canvas><span class="vis-hint"><svg><use href="#i-hand"/></svg>Click the map to place it</span></div>
+          <div class="md-bot">
+            <div class="seg-btns md-shapes" role="group" aria-label="Shape"></div>
+            <label class="range md-size"><span><span>Size</span><output>3 m radius</output></span><input class="rng" type="range" min="1.5" max="12" step="1.5" value="3"></label>
+            <p class="readout md-out" aria-live="polite"></p>
+            <button class="btn sm md-clear" type="button"><svg aria-hidden="true"><use href="#i-undo"/></svg>Clear</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ the fight ═══ -->
+    <section class="section line" id="fight">
+      <div class="wrap">
+        <div class="head center rv"><span class="draw-art crest" data-art="sword" aria-hidden="true"></span><span class="eyebrow c">The fight</span><h2>Every blow, played out</h2><span class="orn" aria-hidden="true"><svg><use href="#i-d20"/></svg></span><p class="lede">An attack asks first: did it hit? Then the blow plays on the map, the TV and the phones, and a fallen hero gets their death saves.</p></div>
+        <div class="duo">
+          <div class="play rv">
+            <div class="duo-h"><h3>The strike</h3><p>Brynn faces an Ogre with defence 14. Choose how she attacks.</p></div>
+            <div class="strikedemo">
+              <div class="sk-stage"><canvas></canvas><span class="sk-name">Blackbriar Courtyard</span><span class="sk-tok sk-me" aria-hidden="true">B</span><span class="sk-tok sk-foe" aria-hidden="true">O</span><div class="sk-hpw"><small><span>The Ogre</span><span class="sk-hpn">59 / 59</span></small><span class="sk-hp"></span></div></div>
+              <div class="sk-atks" role="group" aria-label="Attacks"></div>
+              <div class="sk-foot"><p class="sk-roll" aria-live="polite"><span class="sk-d20">20</span><span>Choose an attack. The Ogre has defence 14.</span></p><button class="btn sm sk-again" type="button" hidden><svg aria-hidden="true"><use href="#i-undo"/></svg>Fight again</button></div>
+              <ol class="sk-log"></ol>
+            </div>
+          </div>
+          <div class="play rv">
+            <div class="duo-h"><h3>Down is not dead</h3><p>At 0 HP a hero falls, and the death saves begin.</p></div>
+            <div class="deathdemo">
+              <div class="dd-body"><span class="dd-tok" data-state="down" aria-hidden="true">M</span><div class="dd-who"><b>Mira</b><small class="dd-hp">0 / 27 HP</small><br><span class="dd-state">Down</span></div></div>
+              <div class="dd-saves"><div class="rows"><div class="dd-s"><span>Successes</span><i></i><i></i><i></i></div><div class="dd-f"><span>Failures</span><i></i><i></i><i></i></div></div><span class="dd-die" aria-hidden="true">&ndash;</span></div>
+              <p class="readout dd-out" aria-live="polite"></p>
+              <div class="dd-acts"><button class="btn primary dd-roll" type="button"><svg aria-hidden="true"><use href="#i-d20"/></svg>Roll death save</button><button class="btn dd-heal" type="button"><svg aria-hidden="true"><use href="#i-heart"/></svg>Heal 5 HP</button><button class="btn ghost dd-reset" type="button"><svg aria-hidden="true"><use href="#i-undo"/></svg>Start again</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ bestiary ═══ -->
+    <section class="section line" id="bestiary">
+      <div class="deco" aria-hidden="true"><svg><use href="#i-d20"/></svg><svg><use href="#i-cedar"/></svg><svg><use href="#i-d20"/></svg><svg><use href="#i-cedar"/></svg></div>
+      <div class="wrap">
+        <div class="play-head">
+          <div class="head rv"><span class="eyebrow">Bestiary &amp; encounters</span><h2>Build the fight in a few clicks</h2><p class="lede">Flip a card for its stats, add a few to the encounter, and drop the whole group onto the map together.</p></div>
+          <ul class="checks rv"><li>Your creatures as a list or a grid of tokens</li><li>HP, defence, speed and attacks on every card</li><li>The AI can draft a new creature for you to approve</li></ul>
+        </div>
+        <div class="bestdemo rv">
+          <div class="seg-btns bd-filter" role="group" aria-label="Show"></div>
+          <div class="bd-grid"></div>
+          <aside class="play bd-tray" aria-label="The encounter">
+            <h3>Encounter <span class="bd-sum"></span></h3>
+            <ul class="bd-list"></ul>
+            <div class="bd-map"></div>
+            <button class="btn primary bd-drop" type="button"><svg aria-hidden="true"><use href="#i-map"/></svg>Drop on the map</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ how it works ═══ -->
+    <section class="section line" id="how">
+      <div class="wrap">
+        <div class="head center rv">
+          <span class="draw-art crest" data-art="map" aria-hidden="true"></span>
+          <span class="eyebrow c">How it works</span>
+          <h2>From sign-up to first roll in minutes</h2>
+        </div>
+        <ol class="steps rv">
+          <li><span class="num">I</span><h3>Create your account</h3><p>One account holds your campaigns and the invites for your players.</p></li>
+          <li><span class="num">II</span><h3>Plant your campaign</h3><p>Give it a name, and your table is ready in the browser. There's nothing to download or install.</p></li>
+          <li><span class="num">III</span><h3>Invite your party</h3><p>Send a link or show the code on the TV. Players join from any phone.</p></li>
+          <li><span class="num">IV</span><h3>Play</h3><p>Open a scene, roll initiative, and let the table do the bookkeeping.</p></li>
+        </ol>
+        <div class="cta-row center-row rv">
+          <a class="btn primary lg" href="signup.html">Start with step one<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn lg" href="features.html">Explore the features<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ use cases ═══ -->
+    <section class="section line">
+      <div class="wrap">
+        <div class="head rv">
+          <span class="eyebrow">Made for how you play</span>
+          <h2>Around a table, or across the sea</h2>
+        </div>
+        <div class="uses" data-stagger>
+          <article class="use a"><span class="tag">In person</span><h3>Game night at home</h3><p>Your laptop's browser runs the game, the TV shows the map, and the players hold their characters. Dice still hit the table.</p></article>
+          <article class="use b"><span class="tag">Online</span><h3>Friends far away</h3><p>Cedar once crossed the sea in Phoenician ships. Your table lives online, so the party can join from anywhere, phone or laptop.</p></article>
+          <article class="use c"><span class="tag">Always on</span><h3>A table that stays open</h3><p>Like the grove on Mount Lebanon, it's always there. Your table is open between sessions, ready whenever your players are.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ benefits ═══ -->
+    <section class="section line tight">
+      <div class="wrap">
+        <div class="benefits" data-stagger>
+          <div class="benefit"><span class="ico"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><h3>Prep in less time</h3><p>Scenes, encounters and notes live together, ready to drop onto the map.</p></div>
+          <div class="benefit"><span class="ico"><svg aria-hidden="true"><use href="#i-lock"/></svg></span><h3>Your world, kept</h3><p>Scenes, tokens, notes and every battle stay with your campaign, right where you left them for the next session.</p></div>
+          <div class="benefit"><span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><h3>Nothing to install</h3><p>A browser is all anyone needs, DM or player. Lost connection? They pick up where they left off.</p></div>
+          <div class="benefit"><span class="ico"><svg aria-hidden="true"><use href="#i-undo"/></svg></span><h3>Undo for everything</h3><p>Moved the wrong token or turned the wrong map? Step back without breaking the scene.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="section line" id="faq">
+      <div class="wrap">
+        <div class="head center rv">
+          <span class="draw-art crest" data-art="potion" aria-hidden="true"></span>
+          <span class="eyebrow c">Questions</span>
+          <h2>Before you roll</h2>
+        </div>
+        <div class="faq rv">
+          <details open><summary>What do I need to run Arzantia?</summary><div class="ans"><p>A browser and an account. Arzantia is a website: sign in, open your campaign, and your table is there. There's nothing to download or install.</p></div></details>
+          <details><summary>Do my players need to install anything?</summary><div class="ans"><p>No. Players open the table in their phone's browser by scanning the code or following your invite link, then choose their character.</p></div></details>
+          <details><summary>Can we play online?</summary><div class="ans"><p>Yes. Your table lives online: send your invite link and players join from anywhere, on a phone, a tablet or a laptop.</p></div></details>
+          <details><summary>Where are my campaigns saved?</summary><div class="ans"><p>With your table, so every scene, token and note is waiting next session. Your Arzantia account keeps your campaigns, your members and your invites, so your party can always find the table.</p></div></details>
+          <details><summary>Does it work on Mac, Windows or a tablet?</summary><div class="ans"><p>Yes. Arzantia runs in any modern browser, on any computer, tablet or phone.</p></div></details>
+          <details><summary>Why is it called Arzantia?</summary><div class="ans"><p><i>Arz</i> is the Arabic word for cedar, the tree of Lebanon: the tree of the oldest quest, of the ships that carried the alphabet, and of a grove that has stood for a thousand years. Arzantia is the land of the cedar, a place where stories take root. <a class="link-arrow" href="about.html">Read the story</a></p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA band ═══ -->
+    <section class="band">
+      <div class="wrap">
+<div class="d20-wrap rv"><canvas class="d20-3d" tabindex="0" aria-label="A golden d20. Drag to spin it, tap or press Enter to roll it."></canvas><span class="d20-out" aria-live="polite">Tap to roll</span></div>
+        <span class="eyebrow c rv">Your table awaits</span>
+        <h2 class="rv">Gather your party under the cedar</h2>
+        <p class="lede rv">Create your account, plant your first campaign, and invite your party tonight.</p>
+        <div class="cta-row rv">
+          <a class="btn primary lg" href="signup.html">Try Arzantia<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn lg" href="features.html">Explore the features<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-foot></footer>
+</body>
+</html>

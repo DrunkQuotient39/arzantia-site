@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.supabase.co; form-action 'self'; base-uri 'none'; object-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#09090b">
+  <meta name="referrer" content="strict-origin">
+  <title>Sign in · Arzantia</title>
+  <link rel="icon" href="assets/arzantia-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/site.js" defer></script>
+  <script src="js/account.js" defer></script>
+</head>
+<body data-page="signin">
+  <main class="auth">
+    <aside class="auth-art">
+      <a class="brand" href="index.html" aria-label="Arzantia, home"><img src="assets/arzantia-mark-dark.svg" alt="" width="30" height="38"><span>Arzantia</span></a>
+      <div>
+        <ul class="art-points">
+          <li><svg aria-hidden="true"><use href="#i-map"/></svg>Your scenes, tokens and notes, as you left them</li>
+          <li><svg aria-hidden="true"><use href="#i-users"/></svg>Your party, a link away</li>
+        </ul>
+        <figure class="quote"><p>"The cedar keeps a ring for every year. Your campaign keeps one for every session."</p><span>Welcome back under the branches</span></figure>
+      </div>
+    </aside>
+
+    <section class="auth-side">
+      <div class="auth-top">
+        <a class="brand" href="index.html" aria-label="Arzantia, home"><img src="assets/arzantia-mark-dark.svg" alt="" width="26" height="34"><span>Arzantia</span></a>
+        <a class="btn ghost sm" href="index.html"><svg aria-hidden="true"><use href="#i-arrow"/></svg>Back to the site</a>
+      </div>
+
+      <div class="auth-form">
+        <!-- sign in -->
+        <div class="view" id="v-in">
+          <div class="head"><span class="draw-art crest" data-art="d20" aria-hidden="true"></span><h1>Welcome back</h1><p class="lede">Sign in and pick up your campaign where it grew.</p></div>
+          <form class="form" id="f-in" novalidate>
+            <div class="form-alert" role="alert" hidden></div>
+            <label class="field"><span>Email</span><span class="input"><input type="email" name="email" autocomplete="username" required maxlength="120" placeholder="you@example.com" inputmode="email"></span></label>
+            <label class="field"><span>Password<button type="button" data-go="forgot">Forgot it?</button></span>
+              <span class="input pw"><input type="password" name="password" autocomplete="current-password" required minlength="6" maxlength="128" placeholder="Your password"><button type="button" class="peek" aria-label="Show the password" aria-pressed="false"><svg aria-hidden="true"><use href="#i-eye"/></svg></button></span></label>
+            <div class="row-between"><label class="check"><input type="checkbox" name="remember" checked>Keep me signed in</label></div>
+            <button class="btn primary lg wide" type="submit">Sign in</button>
+          </form>
+          <p class="alt">New to Arzantia? <a href="signup.html" data-keep-next>Create an account</a></p>
+        </div>
+
+        <!-- a lost password -->
+        <div class="view" id="v-forgot" hidden>
+          <div class="head"><h1>Forgot your password?</h1><p class="lede">Enter your email and we'll send you a link to choose a new one.</p></div>
+          <form class="form" id="f-forgot" novalidate>
+            <div class="form-alert" role="alert" hidden></div>
+            <label class="field"><span>Email</span><span class="input"><input type="email" name="email" autocomplete="username" required maxlength="120" placeholder="you@example.com"></span></label>
+            <button class="btn primary lg wide" type="submit">Send the link</button>
+          </form>
+          <p class="alt"><button type="button" data-go="in">Back to sign in</button></p>
+        </div>
+
+        <!-- after a link was sent -->
+        <div class="view sent" id="v-sent" hidden>
+          <span class="seal"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+          <div class="head"><h1>Check your email</h1><p class="lede" id="sent-text">If an account exists for that address, a link is on its way. Open it on this device.</p></div>
+          <button class="btn" type="button" data-go="in">Back to sign in</button>
+        </div>
+
+        <!-- a recovery link landed here -->
+        <div class="view" id="v-reset" hidden>
+          <div class="head"><h1>Choose a new password</h1><p class="lede">At least 10 characters. You'll stay signed in on this device.</p></div>
+          <form class="form" id="f-reset" novalidate>
+            <div class="form-alert" role="alert" hidden></div>
+            <label class="field"><span>New password</span><span class="input pw"><input type="password" name="password" autocomplete="new-password" required minlength="10" maxlength="128"><button type="button" class="peek" aria-label="Show the password" aria-pressed="false"><svg aria-hidden="true"><use href="#i-eye"/></svg></button></span></label>
+            <button class="btn primary lg wide" type="submit">Save the password</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="auth-foot">Your account keeps your campaigns, your members and your invites. Everything runs in the browser.</p>
+    </section>
+  </main>
+</body>
+</html>
