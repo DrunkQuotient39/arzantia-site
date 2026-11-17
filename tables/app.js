@@ -129,12 +129,13 @@
         const list = 'in.(' + ids.map(encodeURIComponent).join(',') + ')';
         camps = await call('/rest/v1/campaigns?select=id,name,owner,created_at&order=created_at.asc&id=' + list);
         hosts = await getHosts(list);
+        await getService();
       }
     } catch (e) { toast('Could not load your campaigns: ' + e.message, true); }
     const box = $('camps'); box.textContent = '';
     $('camps-empty').hidden = camps.length > 0;
     watchStatus();
-    for (const c of camps) box.appendChild(campCard(c, mine.find((m) => m.campaign_id === c.id) || {}, hosts.find((h) => h.campaign_id === c.id)));
+    for (const c of camps) box.appendChild(campCard(c, mine.find((m) => m.campaign_id === c.id) || {}, tableOf(hosts.find((h) => h.campaign_id === c.id))));
     let inv = new URLSearchParams(location.search).get('invite');
     try { inv = inv || localStorage.getItem('arc_invite'); } catch (e) { /* private mode */ }
     if (inv) { $('form-join').code.value = fmtCode(normCode(inv)); $('form-join').code.focus(); }
@@ -154,6 +155,27 @@
   const isOpen = (host) => !!(host && host.url && (host.last_seen
     ? Date.now() - Date.parse(host.last_seen) < BEAT_MS
     : Date.now() - Date.parse(host.updated_at) < ONLINE_MS));
+  /* The shared server (supabase/migrations/004_shared_server.sql) runs every campaign: while it beats, every
+     campaign's table is open there. A campaign's own table (a DM's PC) that is on wins over it. A database
+     without the 004 update has no service_status: then only campaigns' own tables count, as before. */
+  let SERVICE = null, serviceKnown = true;
+  async function getService() {
+    if (!serviceKnown) return null;
+    try {
+      const rows = await call('/rest/v1/service_status?select=url,beat_at&id=eq.shared');
+      SERVICE = rows && rows[0] && TABLE_ADDR.test(rows[0].url || '') ? rows[0] : null;
+    } catch (e) {
+      if (e.status === 404 || e.status === 400) serviceKnown = false;
+      SERVICE = null;
+    }
+    return SERVICE;
+  }
+  const serviceOpen = () => !!(SERVICE && Date.now() - Date.parse(SERVICE.beat_at) < BEAT_MS);
+  /* the table Enter goes to: the campaign's own when it is on, else the shared server when it beats */
+  const tableOf = (host) => isOpen(host) ? host
+    : serviceOpen() ? { campaign_id: host && host.campaign_id, url: SERVICE.url, kind: 'shared', last_seen: SERVICE.beat_at,
+                        online: (host && host.online) || [] }
+    : host;
   const HOSTS = new Map();                // campaign id -> its last host row (who is at the table)
   /* M33: open or closed, in words that say what to do - and the list keeps itself current */
   function paintStatus(el, host) {
@@ -201,7 +223,8 @@
     try {
       const list = 'in.(' + cards.map((c) => encodeURIComponent(c.dataset.camp)).join(',') + ')';
       const hosts = await getHosts(list);
-      for (const el of cards) paintStatus(el, hosts.find((h) => h.campaign_id === el.dataset.camp));
+      await getService();
+      for (const el of cards) paintStatus(el, tableOf(hosts.find((h) => h.campaign_id === el.dataset.camp)));
       /* an open members list stays current: who joined with an invite since, who left */
       for (const el of cards) { const dm = el.querySelector('.camp-dm'); if (dm && dm.open) loadMembers(el.dataset.camp, el.querySelector('.members'), true); }
     } catch (e) { /* the next round tries again */ }
@@ -239,8 +262,10 @@
     try {
       if (!(await fresh())) return showDoor();
       if (!(await alive())) { save(null); showDoor(); toast('Your sign-in has ended: sign in again to enter the table.', true); return; }
-      const rows = await call('/rest/v1/hosts?select=url,updated_at&campaign_id=eq.' + encodeURIComponent(campaign));
-      const url = rows && rows[0] && rows[0].url;
+      const rows = await getHosts('eq.' + encodeURIComponent(campaign));
+      await getService();
+      const t = tableOf(rows && rows[0]);
+      const url = isOpen(t) || (t && t.kind === 'shared') ? t.url : rows && rows[0] && rows[0].url;
       if (!url || !TABLE_ADDR.test(url)) { toast('The table is closed right now.', true); return; }
       /* a top-level form post: the table checks the token with Supabase and answers with its own
          session cookie - the token never travels in an address */
